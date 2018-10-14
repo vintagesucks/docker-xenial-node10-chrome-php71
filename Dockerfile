@@ -6,6 +6,7 @@ RUN apt-get update && \
 # install essential packages
 RUN apt-get -y install \
   curl \
+  build-essential \
   software-properties-common \
   language-pack-en-base \
   gconf-service \
