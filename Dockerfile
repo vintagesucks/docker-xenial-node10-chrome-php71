@@ -28,14 +28,17 @@ RUN apt-get -y install \
   unzip \
   wget
 
-# add Node.js v10.x and PHP repo
+# add Node.js v10.x, Yarn and PHP repos
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
+  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+  echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
   LC_ALL=en_US.UTF-8 add-apt-repository -y ppa:ondrej/php && \
   apt-get update
 
-# install Node.js v10.x and PHP7.1
+# install Node.js v10.x, Yarn and PHP 7.1
 RUN apt-get -y install \
   nodejs \
+  yarn \
   php7.1-fpm \
   php7.1-mbstring \
   php7.1-dom \
