@@ -26,6 +26,7 @@ RUN apt-get -y install \
   git \
   zip \
   unzip \
+  xvfb \
   wget
 
 # add Node.js v10.x, Yarn and PHP repos
